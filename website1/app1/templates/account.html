@@ -1,0 +1,311 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+Account Page
+{% endblock %}
+
+{% block content %}
+<h1 class="account" >Account Page</h1>
+<section>
+    <div class="container">
+
+       
+        <div class="row">
+            <div class="col-sm-4">
+                {% for x in account %}
+                <div class="inbox firstcol">
+                    {% if x.reg_image == '' %}
+                            <img src="{% static 'avatar.png' %}" alt="" height="100px"> <br>
+                            {% else %}
+                            <img src="/media/{{x.reg_image}}" alt="" height="100px" class="profileimg"> <br>
+                    {% endif %}
+                
+                <div class="row">
+                    <div class="col">
+                        <h6>Name    :  {{x.reg_username}}</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h6>Email : {{x.reg_email}}</h6>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1">
+                                <i class="bi6 bi-house-door-fill"></i>
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                                <a href="/account?h=home"><h4>Home</h4></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+        
+
+
+
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1 logo1">
+                                <i class="bi1 bi-person-fill"></i>
+                               
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                                <a href="account?prof"><h4>My Profile</h4></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1">
+                                <i class="bi3 bi-basket-fill"></i>
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                                <a href="/account?ord=order"><h4>My Orders</h4></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1 logo1">
+                                <i class="bi2 bi-bag-heart-fill "></i>
+                               
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                               <a href="/account?wish=wishlist"><h4>My Wishlist</h4></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>   
+
+
+            
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1">
+                                <i class="bi4 bi-bell-fill"></i>
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                               <a href="/account?noti=notification"><h4>Notifications</h4></a>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-1">
+                                <i class="bi5 bi-info-circle-fill"></i>
+                            </div>
+                            <div class="col-sm-11" style="padding-top: 10px;">
+                                <a href="/account?help=helper"><h4>Help center</h4></a>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+            </div>
+            <div class="col-sm-8">
+                <div class="inbox secondcol">
+                    {% if 'ord' in request.GET %}
+                    <table class="table table-bordered align-middle text-center">
+                        <thead>
+                            <th>image</th>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </thead>
+                        <tbody>
+                            {% for x in order %}
+                            <tr>
+                            <td><img src="/media/{{x.order_image}}" height="200px" alt=""></td>
+                            <td> {{x.order_name}} </td>
+                            <td>{{x.order_qty}} </td>
+                            <td>{{x.order_price}} </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                    {% elif 'prof' in request.GET %}
+                    <form action="/account" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for x in pro %}
+                        <div class="mb-3 mt-3">
+                            {% if x.reg_image == null %}
+                            <img src="{% static 'avatar.png' %}" alt="" height="100px"> <br>
+                            {% else %}
+                            <img src="/media/{{x.reg_image}}" alt="" height="100px" class="profileimg"> <br>
+                            {% endif %}
+                            <label for="name">image:</label>
+                            <input type="file" class="form-control"  value="{{x.reg_image}}" id="name" placeholder="Enter name " name="profile_image">
+                          </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name">Name:</label>
+                            <input type="name" class="form-control"  value="{{x.reg_name}}" id="name" placeholder="Enter name " name="profile_name">
+                          </div>
+                    
+                          <div class="mb-3 mt-3">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="name" placeholder="Enter email " name="profile_email" value="{{x.reg_email}}">
+                          </div>
+
+                                            
+                        <!-- <div class="mb-3 mt-3">
+                              <img src="/media/{{x.cat_image}}" alt="" height="100px"><br>  -->
+                            <!-- <label for="image" class="form-label"> choose image</label>
+                            <input type="file" class="form-control" id="image" placeholder="Choose image" value="{{x.reg_image}}" name="profile_image">
+                        </div> --> 
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    {% endfor %}
+
+                    <div class="row">
+                        <div class="col-sm">
+                
+                    {% elif 'wish' in request.GET %}
+                    {% for x in wish %}
+                
+                            <div class="row my-2">
+                            <div class="col-sm-3">
+                                <div class="cartimg">
+                                    <img src="/media/{{x.wish_image}}" alt="" height="150px">
+                                </div>
+                            </div>
+                
+                            <div class="col-sm-3">
+                                <div class="span1" >
+                                    <div>{{x.wish_name}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="span1">
+                                    <div>price =  {{x.wish_price}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="span1">
+                                <button class="btn btn-primary">add to cart</button>
+                            </div>
+
+                            </div>
+                           
+                            
+                            </div>
+                            {% endfor %}
+
+                            {% elif 'noti' in request.GET %}
+                            {% for x in noti %}
+                            <div class="toast show">
+                                <div class="toast-header">
+                                  {{x.noti_date}}
+                                  <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                </div>
+                                <div class="toast-body">
+                                  {{x.noti_message}}
+                                </div>
+                              </div>
+                              {% endfor %}
+
+                              {% elif 'help' in request.GET %}
+
+                              <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center p-5">
+                                            <h2>How can we help you</h2>
+                                        </div>  
+                                    </div>
+                                    <div class="row mt-3" >
+                                        <div class="col-sm-6 ">
+                                            <div class="inbox">
+                                            <i class="bi bi-geo-alt-fill " style="font-size: 30px;"></i>
+                                            <h4>27/5 blue villa, <br>madiwala,banglore</h4>
+                                        </div>
+                                        </div>
+                                        
+                                            <div class="col-sm-6" >
+                                                <div class="inbox">
+                                                <i class="bi bi-envelope-fill h3" style="font-size: 30px;"></i>
+                                                <h4>skiesdigital@gmail.com</h4>
+                                            </div>
+                                               
+                                            </div>
+                            
+                            
+                                    </div>
+                            
+                                    <div class="row ">
+                                        <div class="col-sm-6 ">
+                                            <div class="inbo">
+                                            <i class="bi bi-headphones" style="font-size: 30px;"></i>
+                                            <h4>Customer support</h4> 
+                                            <h4>0246745229 </h4>
+                                        </div>
+                                        </div>
+                                        
+                                            <div class="col-sm-6">
+                                                <i class="bi bi-printer-fill " style="font-size: 30px;"></i>
+                                                <h4>Fax</h4>
+                                                <h4>0246745239</h4>
+                                            </div>
+                                    </div>
+                            
+                                </div>
+                            </section>
+                            
+                              {% elif 'h' in request.GET %}
+                              <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center p-5">
+                                            <h2>Account and Informations</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                              </section>
+                            {% else %}
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center p-5">
+                                            <h2>Account and Informations</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                              </section>
+                            {% endif %}
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

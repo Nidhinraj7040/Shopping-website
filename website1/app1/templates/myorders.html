@@ -1,0 +1,46 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+My orders
+{% endblock %}
+
+{% block content %}
+<h2>Myorders</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            {% for x in order %}
+            <div class="row-my-2" style="background-color: rgba(159, 129, 129, 0.908);">
+                <div class="col-sm-4">
+                    <div class="inbox1">
+                        <img src="/media/{{x.order_image}}" alt="" height="100px">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="span1">
+                            <span>{{x.order_name}}</span>
+                        </div>
+                        <div class="span1">
+                            <span>price = {{x.order_price}}</span>
+                        </div>
+                        <div class="span1">
+                            <span>quantity : {{x.order_qty}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="span1">
+                            <span>{{x.order_amount}}</span>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+               
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'dashboard/dashboardmaster.html'%}
+{% load static %}\
+
+{% block title %}
+dashboard
+{% endblock %}
+
+{% block content %}
+<h1>Contacts</h1>
+<br>
+<table class="table  table-bordered w-50 mx-auto">
+<thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Message</th>
+</thead>
+
+<tbody>
+    {% for x in contacts %}
+    <tr>
+        <td>{{x.con_name}}</td>
+        <td>{{x.con_email}}</td>
+        <td>{{x.con_message}}</td>
+    </tr>
+    {% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

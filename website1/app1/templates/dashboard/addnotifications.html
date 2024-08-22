@@ -1,0 +1,27 @@
+{% extends 'dashboard/dashboardmaster.html' %}
+{% load static %}
+
+{% block title %}
+addproduct page
+{% endblock %}
+
+{% block content %}
+<form action="/addnotify" method="POST">
+    {% csrf_token %}
+    
+    <div class="mb-3 mt-3">
+        <label for="notify" class="form-label">Enter the notification:</label>
+        <input type="text" class="form-control" id="notify" placeholder="notifications" name="notify">
+      </div>
+      <!-- <div class="mb-3 mt-3">
+        <label for="notify" class="form-label">Enter the date:</label>
+        <input type="date" class="form-control" id="date" placeholder="datetime" name="datetime">
+      </div> -->
+
+      <div class="mb-3 mt-3" >
+        <button type="submit" class="btn btn-primary">Add Notification</button>
+      </div>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'dashboard/dashboardmaster.html'%}
+{% load static %}
+
+{% block title %}
+dashboard
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+   
+
+<h1>Contacts</h1>
+<br>
+<table class="table  table-bordered w-50 mx-auto">
+<thead>
+    <th>Name</th>
+    <th>image</th>
+    <th>price</th>
+    <th>category name</th>
+    <th>Action</th>
+
+</thead>
+
+<tbody>
+    {% for x,y in adminpro %}
+    <tr>
+        <td>{{ x.pro_name }}</td>
+        <td> <img src="/media/{{ x.pro_image }}" alt="Card image" width="50px"></td>
+        <td>{{ x.pro_price }}</td>
+        <td>{{ y }}</td>
+
+        <td>
+            <a href="/editproduct/{{x.id}}">
+        <button >Edit</button>
+    </a>
+        <button>Delete</button>
+
+        
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+
+{% endblock %}

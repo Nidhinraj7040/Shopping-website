@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+Confirm page    
+{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="text-success display-2">Order Submitted Successfully</h1>  
+    <div class="text-center mt-4">
+        <a href="/myorders">
+            <button class="btn btn-dark">View orders</button></a>
+    </div>
+</div>
+{% endblock %}

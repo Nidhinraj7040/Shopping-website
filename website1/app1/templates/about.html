@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+About  Page
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="inbox">
+                    <img src="{% static 'aboutimg.avif' %}" alt="" width="100%" >
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="inbox aboutus">
+                    <H2 style="text-align: center;">About Us</H2>
+                    
+                    <div class="underline">
+                    </div>
+                    <p class="firstcntnt">SKIES is the leading global commerce company that provides essential internet infrastructure for commerce, offering trusted tools to start, scale, market, and run a retail business of any size. Skies makes commerce better for everyone with a platform and services that are engineered for speed, customization, reliability, and security, while delivering a better shopping experience for consumers online, in store and everywhere in between. Skies powers millions of businesses in more than 70 countries and is trusted by brands such as Mattel, Gymshark, Heinz, FTD, Netflix, Kylie Cosmetics, SKIMS, Supreme, and many more.Skies creates the best commerce tools for anyone, anywhere, to start and grow a business. Skies is the leading global commerce company that provides essential internet infrastructure for commerce, offering trusted tools to start, scale, market, and run a retail business of any size. With Skies, business owners can sell in multiple places, including on their website, on marketplaces and social media, and in person through brick-and-mortar locations. Inventory and customer information can be synced across channels for simple management.</p>
+    
+                </div>
+            </div>
+          
+        </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="inbox abttext">
+            <h3 class="fname">Hello, I'm Nidhinraj R.</h3>
+                <p class="abtcntnt">I'm a creator,designer and the founder of SKIES Shopping</p>
+            
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="inbox abttext">
+            <img src="{% static 'ceo new.jpg' %}" alt="" width="100%">
+        </div>
+    </div>
+</div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}

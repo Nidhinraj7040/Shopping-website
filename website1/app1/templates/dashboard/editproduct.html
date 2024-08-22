@@ -1,0 +1,48 @@
+
+{% extends 'dashboard/dashboardmaster.html'%}
+{% load static %}
+
+{% block title %}
+edit products
+{% endblock %}
+
+{% block content %}
+
+    <section class="background">
+        <div class="container mt-3">
+            <div class="row">
+              {% for x in edit %}
+            <h2>Edit product</h2>
+            <form action="/editproduct/{{ x.id }}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <label for="name" class="form-label">editname:</label>
+                    <input type="text" class="form-control" id="name" value="{{x.pro_name}}" placeholder="" name="edit_name">
+                  </div>
+        
+             
+              <div class="mb-3 mt-3">
+                <img src="/media/{{x.pro_image}}" alt="" height="100px">
+                <br>
+                <label for="image" class="form-label">edit image</label>
+                <input type="file" class="form-control" id="img" value="{{x.pro_image}}" placeholder="" name="edit_image">
+              </div>
+             
+              <div class="mb-3 mt-3">
+                <label for="number" class="form-label">edit price</label>
+                <input type="number" class="form-control" value="{{x.pro_price}}" id="text" placeholder="" name="edit_price">
+              </div>
+             
+              <!-- <div class="mb-3 mt-3">
+                <label for="text" class="form-label">category_name</label>
+                <input type="text" class="form-control" id="text" placeholder="" name="cat_name">
+              </div> -->
+        
+             
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+             {% endfor %}
+             {% endblock %}
+</body>
+</html>

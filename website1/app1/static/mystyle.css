@@ -1,0 +1,247 @@
+ /* contact page */
+ 
+.toplink{
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+a.toplink:hover{
+    color: #8147d1;
+    box-sizing:content-box;
+    /* a.ex2:active {font-size: 150%;} */
+    /* font-size: 25px; */
+    transform: scale(1.1);
+
+}
+/* .link:hover:active{
+    font-size: 150px;
+
+} */
+/* .head{
+    text-decoration: solid;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:darkgreen;
+    font-style: italic;
+    padding-left: 15px;
+} */
+
+/* Service page */
+
+.services{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.smallline{
+  
+    /* height: ; */
+    color: black;
+    padding:20px;
+    margin-top: 30px;
+   
+}
+.points{
+    padding: 20px;
+}
+
+/* contact page */
+.contactlist{
+    margin-top: 5px;
+    padding: 40px;
+}
+
+.contactimg{
+    /* padding:40px; */
+    transform: translateY(-50px);
+}
+
+/* cart page */
+
+.carthead{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+
+.propics{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.card-img-top{
+    /* height: 250px; */
+    /* object-fit: cover; */
+    /* padding: 10px; */
+    /* transform: scale(.8); */
+}
+
+.card{
+    /* margin: 20px; */
+}
+
+.cartimg{
+    /* object-fit: cover; */
+    padding: 20px;
+    /* margin: 150px 0px; */
+}
+
+.secimg{
+    background-image: url(background.jpg);
+    background-size: cover;
+     background-repeat: no-repeat; 
+    height: 668px;
+    /* background-position: center; */
+}
+
+/* ABOUT PAGE */
+
+.aboutus{
+    /* background-color: rgba(220, 207, 207, 0.504); */
+}
+.underline{
+    height:1px;
+    border: solid;
+    width: 60px;
+    color: rgba(183, 76, 40, 0.737);
+    margin: auto;
+    
+    
+}
+.fname{
+    font-weight: 700;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+}
+.abtcntnt{
+    text-align: left;
+    font-size: x-large;
+}
+.firstcntnt{
+    text-align: justify;
+    padding: 0px 10px;
+}
+.abttext{
+    /* background-color: rgba(220, 207, 207, 0.504); */
+    /* height: 300px; */
+    margin: 15PX;
+    padding: 15px;
+}
+
+/* product page */
+
+.product{
+    background: #e5e5e5;
+}
+.product h2{
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #5b71ca;
+}
+.product img{
+    width: 200px;
+    height: 200px;
+}
+.card {
+    height: 35-0px;
+    /* width: 250px; */
+
+    background:#e5e5e5 !important;
+    border: none !important;
+    box-shadow: 15px 20px 20px rgb(0, 0, 0,.3),
+                inset 4px 4px 10px white;
+    border-radius: 20px !important;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin:20px 20px;
+    transition: .2s;
+
+}
+.card:hover{
+    box-shadow: inset 5px 5px 10px rgb(0, 0, 0,.3),
+                inset -4px -4px 10px white;
+
+    transition: .2s;
+                
+            
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.logoname{
+    font-weight:bold ;
+    display: inline-block;
+    transform: translateY(5px);
+
+}
+
+/* Login page */
+
+.login{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logincontnt{
+    transform: translateY(20px);
+}
+
+/* Account Page */
+
+.account{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.firstcol{
+    background-color:#8cb0ddb7;
+    height: 550px;
+    text-align: center;
+}
+
+.secondcol{
+    background-color:#8cb0ddb7;
+    height: 550px;
+    text-align: center;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.profileimg{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 10px;
+    /* text-align: center; */
+}
+.bi1,.bi2,.bi3,.bi4,.bi5,.bi6{
+    font-size:xx-large;
+    margin: 20px;
+}
+
+ /* Admin page */
+.adminlink{
+    text-align: center;
+    color:brown
+}
+a.adminlink{
+    text-align: center ;
+    font-weight: 700;
+}
+
+.span1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 170px; */
+}
+
+/* .secondcol{
+    text-align: center;
+} */

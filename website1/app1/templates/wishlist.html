@@ -1,0 +1,50 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+wishlist page
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="carthead">wishlist</h2><br><br><br>
+    <div class="row">
+        <div class="col">
+            {% for x in wishlist %}
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="wishimg">
+                        <img src="/media/{{x.wish_image}}" alt="" height="150px">
+                    </div>
+                </div>
+
+
+                    <div class="col-sm-3">
+                        <div class="span1">
+                            <span>{{x.wish_name}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="span1">
+                            <span>price = {{x.wish_price}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="span1">
+                           <a href="/addtocart/{{x.id}}"><button class="btn btn-primary">add to Cart</button></a>
+                        </div>
+                    </div>
+               
+              
+            </div>
+            {% endfor %}
+        </div>
+         
+    </div>
+</div>
+   
+
+
+
+    {% endblock %}

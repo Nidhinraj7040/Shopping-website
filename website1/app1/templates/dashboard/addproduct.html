@@ -1,0 +1,50 @@
+{% extends 'dashboard/dashboardmaster.html' %}
+{% load static %}
+
+{% block title %}
+addproduct page
+{% endblock %}
+
+{% block content %}
+<section class="background">
+<div class="container mt-3">
+    <div class="row">
+    <h2>Add product</h2>
+    <form action="/addproduct" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">ProductName:</label>
+            <input type="text" class="form-control" id="name" placeholder="product" name="pro_name">
+          </div>
+
+      <div class="mb-3 mt-3">
+        <label for="price" class="form-label">Product Price</label>
+        <input type="number" class="form-control" id="email" placeholder="product price" name="pro_price">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="file" class="form-label">Product image</label>
+        <input type="file" class="form-control" id="email" placeholder="product image" name="pro_image">
+      </div>
+    
+      <div class="mb-3 mt-3">
+        <label for="image" class="form-label">Product Category</label>
+       <select name="pro_category" id="" class="form-select">
+        {% for x in c %}
+        <option value=" {{ x.id }}"> 
+          {{ x.cat_name }}
+        </option>
+        {% endfor %}
+       </select>
+      </div>
+      
+
+     
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  </div>
+</section>
+  
+{% endblock %}

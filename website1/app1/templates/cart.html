@@ -1,0 +1,73 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+Cart Page
+{% endblock %}
+{% block content %}
+<section>
+<h2 class="carthead">Cart</h2><br><br><br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-xl-9 col-lg-7 col-sm-12">
+
+            {% for x in cart %}
+            <div class="row my-2" style="background-color: rgba(238, 119, 119, 0.799);">
+            <div class="col-sm-4">
+                <div class="cartimg">
+                    <img src="/media/{{x.cart_image}}" alt="" height="100px">
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="span1">
+                    <span>{{x.cart_name}}</span>
+                </div>
+                <div class="span1">
+                    <span>price =  {{x.cart_price}}</span>
+                </div>
+                <div class="span1">
+                    <span>
+                        <a href="/cart?q=dec&cp={{x.id}}" class="btn btn-danger">-</a>
+                        {{x.cart_qty}}
+                        <a href="/cart?q=inc&cp={{x.id}}" class="btn btn-success btn-sm">+</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="span1">
+                    <span>Rs. {{x.cart_amount}}</span>
+                    <br><br>
+                    <a href="/cart?del={{x.id}}">
+                        <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash3-fill"></i>Delete
+                        </button>
+                    </a>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-xl-3 col-lg-5 col-sm-">
+            <div style="background-color: rgba(53, 220, 178, 0.837); min-height: 300px; padding: 15px;">
+            Total Amount : {{tot}}
+            <br><br>
+            Shipping : {{shp}}
+            <br><br>
+            GST : {{gst}}
+            <br>
+            <hr>
+            <br>
+            Total : {{gtot}}
+            <br><br>
+            <a href="/checkout">
+                <button class="btn btn-success">Checkout</button>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

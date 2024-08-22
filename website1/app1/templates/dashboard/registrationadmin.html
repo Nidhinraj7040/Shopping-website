@@ -1,0 +1,33 @@
+{% extends 'dashboard/dashboardmaster.html' %}
+{% load static %}\
+
+{% block title %}
+registration admin
+{% endblock %}
+
+{% block content %}
+<h1>registration admin</h1>
+<table class="table table-bordered w-50 mx-auto">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Phonenumber</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for x in registrationadmin %}
+    <tr>
+      <td>{{x.reg_name}}</td>
+      <td>{{x.reg_email}}</td>
+      <td>{{x.reg_username}}</td>
+      <td>{{x.reg_password}}</td>
+      <td>{{x.reg_phonenumber}}</td>
+    </tr>
+  </tbody>
+</table>
+  
+{% endblock %}
